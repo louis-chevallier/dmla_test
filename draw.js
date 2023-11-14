@@ -61,14 +61,12 @@ function drawPolygon() {
 
 var cvalue = 0;
 
-function drawEllipse(a) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+function drawEllipse1(a, y, x) {
     debug("a", a);
     k = a / 10 + 1;
-    x = 200;
-    y = 300;
     debug("k", k);
-    var radiusX = 200/10;
+    var radiusX = 300/10;
     var radiusY = Math.round(radiusX / k); 
     var rotation = 0;
     debug("rxy", radiusX, radiusY);
@@ -79,6 +77,16 @@ function drawEllipse(a) {
     ctx.fill();
     document.getElementById("value").innerHTML  =  "<big>" + a + "</big>";
     cvalue = a;
+}
+
+function drawEllipse(a) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    S=70;
+    for (x = 100; x < 600; x += S) { 
+	for (y = 200; y < 600; y += S) { 
+	    drawEllipse1(a, y, x);
+	}
+    }
 }
 
 
